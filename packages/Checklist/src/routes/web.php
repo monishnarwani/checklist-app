@@ -1,5 +1,7 @@
 <?php
+$namespace = "Checklist\Http\Controllers";
 
-Route::get('/', function () {
-    return "hello";
-});
+
+Route::group(['namespace' => $namespace], function () {
+	Route::get('/', "TestController@index");
+});	
