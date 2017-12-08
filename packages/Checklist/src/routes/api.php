@@ -1,6 +1,6 @@
 <?php
 
-$namespace = 'Checklist\Http\Controllers';
+$namespace = 'Checklist\Http\Controllers\api';
 
 Route::group(['namespace' => $namespace, 'middleware' => 'api', 'prefix' => 'api/v1'], function () {
    Route::get('checklist/{id}','ChecklistApiController@show');

@@ -1,8 +1,9 @@
 <?php
 
-namespace Checklist\src\Repositories;
+namespace Checklist\Repositories;
 
 interface ChecklistRepository
 {
+    public function createChecklist($inputData);
 
 }

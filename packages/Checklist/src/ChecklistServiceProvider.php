@@ -2,8 +2,10 @@
 
 namespace Checklist;
 
-use Checklist\src\Repositories\EloquentItems;
-use Checklist\src\Repositories\ItemRepository;
+use Checklist\Repositories\ChecklistRepository;
+use Checklist\Repositories\EloquentChecklist;
+use Checklist\Repositories\EloquentItems;
+use Checklist\Repositories\ItemRepository;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
 
@@ -13,7 +15,7 @@ class ChecklistServiceProvider extends ServiceProvider
     {
         $this->registerPublishables();
 
-        $this->app->bind(ItemRepository::class, EloquentItems::class);
+        $this->app->bind(ChecklistRepository::class, EloquentChecklist::class);
     }
 
     public function boot()
