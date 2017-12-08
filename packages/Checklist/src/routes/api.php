@@ -10,6 +10,6 @@ Route::group(['namespace' => $namespace, 'middleware' => 'api', 'prefix' => 'api
 });
 
 Route::group(['namespace' => $namespace, 'middleware' => 'api', 'prefix' => 'api/v1'], function () {
-    Route::get('checklist/{id}','ItemsApiController@show');
-    Route::post('checklist', 'ItemsApiController@create');
+    Route::get('item/{id}','ItemsApiController@show');
+    Route::post('items', 'ItemsApiController@create');
 });

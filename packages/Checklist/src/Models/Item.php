@@ -8,7 +8,7 @@
 
 namespace Checklist\src\Models;
 
-use App\Item;
+
 use Illuminate\Database\Eloquent\Model;
 
 class Item extends Model
