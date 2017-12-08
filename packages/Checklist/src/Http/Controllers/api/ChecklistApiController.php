@@ -18,9 +18,10 @@ class ChecklistApiController extends Controller
         $this->checklistRepository = $checklistRepository;
     }
 
-    public function show(ChecklistRepository $id, Request $request)
+    public function show($id)
     {
-
+        $checklist = $this->checklistRepository->getById($id);
+        return getApiResponse(true, getConfig('messages.global.success'), getConfig('messages.global.success'), $checklist, [], 200);
     }
 
     public function store(Request $request)
@@ -46,8 +47,6 @@ class ChecklistApiController extends Controller
             'name' => $request->input('name'),
             'created_by' => $request->input('created_by')
         ];
-
-        li($inputData);
 
         try {
 

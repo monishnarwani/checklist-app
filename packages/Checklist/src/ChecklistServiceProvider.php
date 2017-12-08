@@ -15,6 +15,7 @@ class ChecklistServiceProvider extends ServiceProvider
     {
         $this->registerPublishables();
 
+        $this->app->bind(ItemRepository::class, EloquentItems::class);
         $this->app->bind(ChecklistRepository::class, EloquentChecklist::class);
     }
 

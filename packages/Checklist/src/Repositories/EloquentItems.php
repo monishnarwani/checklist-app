@@ -1,7 +1,8 @@
 <?php
 
-namespace Checklist\src\Repositories;
-use Checklist\src\Models\Item;
+namespace Checklist\Repositories;
+
+use Checklist\Models\Item;
 
 class EloquentItems implements ItemRepository
 {
@@ -11,13 +12,18 @@ class EloquentItems implements ItemRepository
     {
         $this->model = $item;
     }
-    public function CreateItem()
+    public function CreateItem($inputData)
     {
-        //return $this->model->create($item);
+        $item = new Item();
+        $item->name = $inputData['name'];
+        $item->created_by = $inputData['created_by'];
+        $item->save();
+
+        return $item;
     }
 
     public function getall()
     {
-        //return $this->model->all($item);
+        return $this->model->all();
     }
 }

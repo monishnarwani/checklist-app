@@ -26,4 +26,16 @@ class EloquentChecklist implements ChecklistRepository
         }
         return false;
     }
+
+    public function updateChecklist($inputData, $id)
+    {
+
+    }
+
+    public function getById($id)
+    {
+        $checklist = $this->model->where('id', $id)->first();
+        return $checklist;
+
+    }
 }

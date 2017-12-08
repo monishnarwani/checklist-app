@@ -1,10 +1,10 @@
 <?php
 
-namespace Checklist\src\Repositories;
+namespace Checklist\Repositories;
 
 interface ItemRepository
 {
-public function createItem();
+    public function createItem($inputData);
 
-public function getall();
+    public function getall();
 }

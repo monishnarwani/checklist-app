@@ -6,7 +6,7 @@
  * Time: 11:31 AM
  */
 
-namespace Checklist\src\Models;
+namespace Checklist\Models;
 
 
 use Illuminate\Database\Eloquent\Model;
