@@ -52,7 +52,7 @@ class ChecklistApiController extends Controller
 
             DB::beginTransaction();
 
-            $checklist = $this->checklistRepository->createChecklist($inputData); // retruns checklist obj if success, else returns false
+            $checklist = $this->checklistRepository->createChecklist($inputData); // returns checklist obj if success, else returns false
 
             DB::commit();
 
