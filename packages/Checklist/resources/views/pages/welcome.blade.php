@@ -1,9 +1,11 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Hello</title>
-</head>
-<body>
-     <p> Hi , my name is  Naqiyah  </p>
-</body>
-</html>
+@extends('Checklist::pages.master')
+
+@section('content')
+    <div id="app">
+        <checklist-main></checklist-main>
+    </div>
+@endsection
+
+@section('footer')
+    <script src="{{mix('js/app.js')}}"></script>
+@endsection
