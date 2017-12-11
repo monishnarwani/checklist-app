@@ -9,5 +9,4 @@ interface ChecklistRepository
     public function updateChecklist($inputData, $id);
 
     public function getById($id);
-
 }

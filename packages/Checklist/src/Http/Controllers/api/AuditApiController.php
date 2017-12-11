@@ -53,7 +53,7 @@ class AuditApiController extends Controller{
             return getApiResponse(false, getConfig('messages.global.validate'), getConfig('messages.global.validate'), [], $validator->errors(),422);
         }
 
-        $inputdata = [
+        $inputData = [
             'name' => $request->input('name'),
             'created_by' => $request->input('created_by'),
             'checklist_id' => $request->input('checklist_id'),
@@ -66,7 +66,7 @@ class AuditApiController extends Controller{
 
             DB::beginTransaction();
 
-            $audit = $this->auditRepository->CreateAudit($inputdata); // returns audit obj if success, else returns false
+            $audit = $this->auditRepository->CreateAudit($inputData); // returns audit obj if success, else returns false
 
             DB::commit();
 
@@ -74,11 +74,11 @@ class AuditApiController extends Controller{
 
             DB::rollBack();
             \Log::info($exception->getMessage());
-           // return getApiResponse(false, getConfig('messages.audit.fail'), getConfig('messages.audit.fail'), [], $exception->getMessage(),422);
-                return "hello";
+            return getApiResponse(false, getConfig('messages.audit.fail'), getConfig('messages.audit.fail'), [], $exception->getMessage(),422);
+        //        return "hello";
         }
 
-        //return getApiResponse(true, getConfig('messages.audit.save'), getConfig('messages.checklist.save'),$audit, [], 201);
+        return getApiResponse(true, getConfig('messages.audit.save'), getConfig('messages.checklist.save'),$audit, [], 201);
     }
 
 

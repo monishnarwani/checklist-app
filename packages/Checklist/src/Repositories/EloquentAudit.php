@@ -17,15 +17,15 @@ class EloquentAudit implements AuditRepository
     {
         $this->model = $audit;
     }
-    public function  CreateAudit($inputdata)
+    public function  CreateAudit($inputData)
     {
         $audit = new audit();
-        $audit->name = $inputdata['name'];
-        $audit->created_by = $inputdata['created_by'];
-        $audit->checklist_id = $inputdata['checklist_id'];
-        $audit->users = $inputdata['users'];
-        $audit->status = $inputdata['status'];
-        $audit->project_id = $inputdata['project_id'];
+        $audit->name = $inputData['name'];
+        $audit->created_by = $inputData['created_by'];
+        $audit->checklist_id = $inputData['checklist_id'];
+        $audit->users = $inputData['users'];
+        $audit->status = $inputData['status'];
+        $audit->project_id = $inputData['project_id'];
         $response = $audit->save();
 
         if ($response) {
@@ -34,4 +34,8 @@ class EloquentAudit implements AuditRepository
         return false;
     }
 
+    public function GetById($Id)
+    {
+        //
+    }
 }

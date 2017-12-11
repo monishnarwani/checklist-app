@@ -4,6 +4,7 @@ namespace Checklist;
 
 use Checklist\Repositories\AuditRepository;
 use Checklist\Repositories\ChecklistRepository;
+use Checklist\Repositories\EloquentAudit;
 use Checklist\Repositories\EloquentChecklist;
 use Checklist\Repositories\EloquentItems;
 use Checklist\Repositories\ItemRepository;
