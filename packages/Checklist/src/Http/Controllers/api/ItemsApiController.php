@@ -47,6 +47,6 @@ class ItemsApiController extends Controller
     public function getItems()
     {
         $items = $this->itemRepository->getall();
-        return getApiResponse(true, getConfig('messages.checklist.save'), getConfig('messages.checklist.save'), $items, [], 201);
+        return getApiResponse(true, getConfig('messages.global.success'), getConfig('messages.global.success'), $items, [], 200);
     }
 }

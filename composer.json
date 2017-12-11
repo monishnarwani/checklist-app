@@ -13,6 +13,7 @@
     "require-dev": {
         "filp/whoops": "~2.0",
         "fzaninotto/faker": "~1.4",
+        "guzzlehttp/guzzle": "^6.3",
         "mockery/mockery": "~1.0",
         "phpunit/phpunit": "~6.0"
     },
@@ -28,7 +29,8 @@
         },
         "files": [
             "packages/Utility/GlobalFunctions/src/helpers/helper.php"
-        ]
+        ],
+        "test": "./vendor/bin/phpunit"
     },
     "autoload-dev": {
         "psr-4": {

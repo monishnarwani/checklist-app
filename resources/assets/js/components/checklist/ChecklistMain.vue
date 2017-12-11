@@ -1,11 +1,16 @@
 <template>
     <div class="container">
-        <h2>in checklist main component</h2>
+        <div>
+            <create-checklist></create-checklist>
+        </div>
     </div>
 </template>
 
 <script>
+    import CreateChecklist from './CreateChecklist'
     export default {
-
+        components: {
+          CreateChecklist
+        }
     }
 </script>
