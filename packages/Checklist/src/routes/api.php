@@ -11,4 +11,6 @@ Route::group(['namespace' => $namespace, 'middleware' => 'api', 'prefix' => 'api
 
    Route::get('item','ItemsApiController@getItems');
    Route::post('item', 'ItemsApiController@create');
+
+   Route::post('audit','AuditApiController@create');
 });

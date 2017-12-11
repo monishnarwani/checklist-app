@@ -44,7 +44,8 @@
 <script>
   import MultiSelect from 'vue-multiselect'
   import {
-    getItems
+    getItems,
+    createChecklist
   } from "./config";
 
   export default {

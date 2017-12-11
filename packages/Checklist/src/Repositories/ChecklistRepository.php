@@ -11,4 +11,5 @@ interface ChecklistRepository
     public function getById($id);
 
     public function deleteById($id);
+
 }
