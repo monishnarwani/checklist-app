@@ -4,6 +4,7 @@ namespace Checklist\Http\Controllers\api;
 
 use App\Http\Controllers\Controller;
 use Checklist\Repositories\ChecklistRepository;
+use Checklist\Repositories\ItemRepository;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
@@ -24,11 +25,11 @@ class ChecklistApiController extends Controller
         return getApiResponse(true, getConfig('messages.global.success'), getConfig('messages.global.success'), $checklist, [], 200);
     }
 
-    public function store(Request $request)
+    public function store(Request $request, ItemRepository $itemRepository)
     {
         $validationRules = [
             'name' => 'required',
-            'created_by' => 'required'
+            'items' => 'required'
         ];
 
         $validationMessage = [
@@ -42,10 +43,10 @@ class ChecklistApiController extends Controller
             return getApiResponse(false, getConfig('messages.global.validate'), getConfig('messages.global.validate'), [], $validator->errors(),422);
         }
 
-
+        $created_by = 1;
         $inputData = [
             'name' => $request->input('name'),
-            'created_by' => $request->input('created_by')
+            'created_by' => $created_by
         ];
 
         try {
@@ -53,6 +54,18 @@ class ChecklistApiController extends Controller
             DB::beginTransaction();
 
             $checklist = $this->checklistRepository->createChecklist($inputData); // returns checklist obj if success, else returns false
+
+            if ($checklist) {
+                foreach ($request->input('items') as $key=>$item) {
+                    if (isset($item['id'])) {
+                        $checklist->items()->attach($item['id'], ['created_by' => $created_by]);
+                    } else {
+                        $newItem = $itemRepository->createItem(['name' => $item['name'], 'created_by' => $created_by ]);
+                        $checklist->items()->attach($newItem['id'], ['created_by' => $created_by]);
+                    }
+                }
+
+            }
 
             DB::commit();
 

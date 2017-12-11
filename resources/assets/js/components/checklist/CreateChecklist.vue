@@ -73,7 +73,13 @@
         this.selectedItems.push(item)
       },
       saveChecklist () {
-
+        var sendData = {
+          name: this.checklistName,
+          items: this.selectedItems
+        }
+        axios.post(createChecklist, sendData).then(response => {
+          console.log(response)
+        })
       }
     }
   }

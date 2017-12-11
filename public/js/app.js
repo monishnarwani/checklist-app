@@ -46022,7 +46022,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
   created: function created() {
     var _this = this;
 
-    axios.get(__WEBPACK_IMPORTED_MODULE_1__config__["a" /* getItems */]).then(function (response) {
+    axios.get(__WEBPACK_IMPORTED_MODULE_1__config__["b" /* getItems */]).then(function (response) {
       _this.items = response.data.data;
     });
   },
@@ -46045,7 +46045,15 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       this.items.push(item);
       this.selectedItems.push(item);
     },
-    saveChecklist: function saveChecklist() {}
+    saveChecklist: function saveChecklist() {
+      var sendData = {
+        name: this.checklistName,
+        items: this.selectedItems
+      };
+      axios.post(__WEBPACK_IMPORTED_MODULE_1__config__["a" /* createChecklist */], sendData).then(function (response) {
+        console.log(response);
+      });
+    }
   }
 });
 
@@ -46335,8 +46343,8 @@ if (false) {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return getItems; });
-/* unused harmony export createChecklist */
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return getItems; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return createChecklist; });
 var getItems = 'api/v1/item';
 var createChecklist = 'api/v1/checklist';
 
