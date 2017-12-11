@@ -6,8 +6,8 @@ Route::group(['namespace' => $namespace, 'middleware' => 'api', 'prefix' => 'api
 
    Route::get('checklist/{id}','ChecklistApiController@show');
    Route::post('checklist', 'ChecklistApiController@store');
-   Route::put('checklist/{id}','ChecklistApiController@update');
-   Route::delete('checklist/{id}','ChecklistApiController@destroy');
+   Route::post('checklist/update/{id}','ChecklistApiController@update');
+   Route::delete('checklist/delete/{id}','ChecklistApiController@destroy');
 
    Route::get('item','ItemsApiController@getItems');
    Route::post('item', 'ItemsApiController@create');

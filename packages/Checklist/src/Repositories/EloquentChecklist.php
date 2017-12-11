@@ -29,6 +29,17 @@ class EloquentChecklist implements ChecklistRepository
 
     public function updateChecklist($inputData, $id)
     {
+        $checklist = $this->model->where('id', $id)->first();
+        if ($checklist) {
+            $checklist->name = $inputData['name'];
+            $checklist->created_by = $inputData['created_by'];
+            $response = $checklist->save();
+
+            if ($response) {
+                return $checklist;
+            }
+        }
+        return false;
 
     }
 
@@ -37,5 +48,16 @@ class EloquentChecklist implements ChecklistRepository
         $checklist = $this->model->where('id', $id)->first();
         return $checklist;
 
+    }
+
+    public function deleteById($id)
+    {
+        $response = $this->model->where('id', $id)->first();
+        li($response);
+        if ($response) {
+            $response->delete();
+            return true;
+        }
+        return false;
     }
 }

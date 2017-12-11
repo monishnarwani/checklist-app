@@ -10,6 +10,10 @@ return [
         'name_required' => 'Checklist name required',
         'createdby_required' => 'Checklist created by is required',
         'save' => 'Checklist created successfully',
-        'fail' => 'Checklist creation failed'
+        'fail' => 'Checklist creation failed',
+        'update_fail' => 'Checklist update failed',
+        'update' => 'Checklist updated successfully',
+        'delete_success' => 'Checklist deleted',
+        'delete_fail' => 'Checklist deletion failed'
     ]
 ];
